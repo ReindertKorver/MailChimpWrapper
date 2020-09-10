@@ -3,18 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace MailChimpWrapper.Models.Requests
 {
-    public abstract class BaseRequest
+    public interface IBaseRequest
     {
-        public string ApiKey { get; set; }
-        protected abstract string Endpoint { get; set; }
-        public string GetEndpoint()
-        {
-            return Endpoint;
-        }
-        protected abstract HttpMethod Method { get; }
-        public HttpMethod GetMethod()
-        {
-            return Method;
-        }
+        public string Endpoint { get; }
+        public HttpMethod Method { get; }
     }
 }

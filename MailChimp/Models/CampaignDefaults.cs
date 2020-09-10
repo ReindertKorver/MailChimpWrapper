@@ -11,7 +11,11 @@ namespace MailChimpWrapper.Models
         public string FromName { get; set; }
         [JsonPropertyName("from_email")]
         public string FromEmail { get; set; }
+        [JsonPropertyName("subject")]
+
         public string Subject { get; set; }
+        [JsonPropertyName("language")]
+
         public string Language { get; set; }
     }
 }

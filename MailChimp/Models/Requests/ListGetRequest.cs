@@ -11,17 +11,18 @@ namespace MailChimpWrapper.Models.Requests
     /// <see href="https://mailchimp.com/developer/api/marketing/lists/get-list-info/">Docs /lists/{list_id}</see>
     /// </para>
     /// </summary>
-    public class ListGetRequest : BaseRequest
+    public class ListGetRequest : IBaseRequest
     {
         internal readonly string _queryParams;
         internal readonly string _id;
-        public ListGetRequest(string id,string queryParams="")
+
+        public ListGetRequest(string id, string queryParams = "")
         {
             _queryParams = queryParams;
             _id = id;
         }
-        protected override string Endpoint { get => Endpoints.Lists+"/"+ _id; set  { } }
 
-        protected override HttpMethod Method => HttpMethod.Get;
+        string IBaseRequest.Endpoint { get => Endpoints.Lists + "/" + _id + "" + _queryParams; }
+        HttpMethod IBaseRequest.Method { get => HttpMethod.Get; }
     }
 }

@@ -5,15 +5,16 @@ using System.Text;
 
 namespace MailChimpWrapper.Models.Requests
 {
-    public class BaseGetRequest : BaseRequest
+    public class BaseGetRequest : IBaseRequest
     {
+        private string _endpoint;
+
         public BaseGetRequest(string endpoint)
         {
             _endpoint = endpoint;
         }
-        protected override string Endpoint { get => _endpoint; set => _endpoint = value; }
-        private string _endpoint;
 
-        protected override HttpMethod Method => HttpMethod.Get;
+        string IBaseRequest.Endpoint { get => _endpoint; }
+        HttpMethod IBaseRequest.Method { get => HttpMethod.Get; }
     }
 }

@@ -16,5 +16,12 @@ namespace MailChimpWrapper.Models
         /// </para>
         /// </summary>
         public const string Ping="ping";
+        /// <summary>
+        /// Get links to all other resources available in the API.
+        /// <para>
+        /// <see href="https://mailchimp.com/developer/api/marketing/root/list-api-root-resources/">Docs /</see>
+        /// </para>
+        /// </summary>
+        public const string Root="";
     }
 }

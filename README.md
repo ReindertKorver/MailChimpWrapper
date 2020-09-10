@@ -15,12 +15,41 @@ MailChimpWrapper.MailChimpClient client = new MailChimpWrapper.MailChimpClient("
 ```
 PingResponse pingResult = await client.GetRequest<PingResponse>(Endpoints.Ping);
 ```
-### Lists
+### Lists (Audiences)
+#### Get multiple
 ```
 ListsResponse listsResult = await client.GetRequest<ListsResponse>(Endpoints.Lists);
 ```
+#### Get by id
 ```
 ListResponse listResult = await client.Request<ListGetRequest, ListResponse>(new ListGetRequest("ID"));
 ```
+### List Members
+#### Post
+```
+var listMembers = new List<Member>() { new Member(){
+            EmailAddress="emailaddress",
+            EmailClient="Outlook",
+            Language="En",
+            Status="subscribed",
+            EmailType="html"
+        }
+    };
+ListMembersResponse listMembersResponse = await client.Request<ListMembersPostRequest, ListMembersResponse>(new ListMembersPostRequest("listId", listMembers));
 
+```
+### MemberTags
+#### Get
+```
+MemberTagsResponse memberTagsResponse = await client.Request<MemberTagsGetRequest, MemberTagsResponse>(new MemberTagsGetRequest("listId", "emailaddress"));
+```
+#### Post
+Note: Because the Api doesn't return any content there is no response.
+```
+await client.Request(new MemberTagsPostRequest("listId", "emailaddress", new List<Tag>() { new Tag() { Name = "tagName", Status = "active/inactive" } }));
+```
+
+<br/>
+<br/>
+<br/>
 <b>Note this project is in a very early stage!</b>

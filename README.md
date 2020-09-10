@@ -3,8 +3,10 @@ This project wraps around the basic MailChimp API, and gives you an easier and m
 
 ## Currently includes:
 - Ping
-- Lists
-- List
+- Root
+- Lists (Audiences)
+- List Members
+- MemberTags
 
 ## Usage
 ### Initialize the client:
@@ -14,6 +16,10 @@ MailChimpWrapper.MailChimpClient client = new MailChimpWrapper.MailChimpClient("
 ### Ping
 ```
 PingResponse pingResult = await client.GetRequest<PingResponse>(Endpoints.Ping);
+```
+### Root
+```
+RootResponse rootresp = await client.GetRequest<RootResponse>(Endpoints.Root);
 ```
 ### Lists (Audiences)
 #### Get multiple
@@ -38,7 +44,7 @@ var listMembers = new List<Member>() { new Member(){
 ListMembersResponse listMembersResponse = await client.Request<ListMembersPostRequest, ListMembersResponse>(new ListMembersPostRequest("listId", listMembers));
 
 ```
-### MemberTags
+### Member Tags
 #### Get
 ```
 MemberTagsResponse memberTagsResponse = await client.Request<MemberTagsGetRequest, MemberTagsResponse>(new MemberTagsGetRequest("listId", "emailaddress"));

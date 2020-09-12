@@ -2,6 +2,8 @@ using MailChimpWrapper.Models;
 using MailChimpWrapper.Models.Exceptions;
 using MailChimpWrapper.Models.Requests;
 using MailChimpWrapper.Models.Responses;
+using MailChimpWrapper.Models.Utils;
+using Microsoft.VisualBasic;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -38,7 +40,7 @@ namespace MailChimpWrapper
             client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
 
             var endpoint = string.Format("https://{0}.api.mailchimp.com/3.0/{1}", Server, requestBody.Endpoint);
-            string json = JsonSerializer.Serialize(requestBody, new JsonSerializerOptions() { IgnoreNullValues = true });
+            string json = JsonSerializer.Serialize(requestBody, MailChimpWrapperContants.JsonSerializerRequestOptions);
             HttpResponseMessage responseBody;
             string response = "";
             var httpContent = new HttpRequestMessage(requestBody.Method, endpoint);
@@ -60,7 +62,7 @@ namespace MailChimpWrapper
                         response = await responseBody.Content.ReadAsStringAsync();
                         if (!string.IsNullOrEmpty(response))
                         {
-                            return JsonSerializer.Deserialize<ResponseBody>(response, new JsonSerializerOptions() { MaxDepth = 10, PropertyNameCaseInsensitive = true });
+                            return JsonSerializer.Deserialize<ResponseBody>(response, MailChimpWrapperContants.JsonSerializerResponseOptions);
                         }
                         else
                         {
@@ -78,7 +80,7 @@ namespace MailChimpWrapper
                     try
                     {
                         var resp = await responseBody.Content.ReadAsStringAsync();
-                        errorResponse = JsonSerializer.Deserialize<ErrorResponse>(resp, new JsonSerializerOptions() { MaxDepth = 10, PropertyNameCaseInsensitive = true });
+                        errorResponse = JsonSerializer.Deserialize<ErrorResponse>(resp, MailChimpWrapperContants.JsonSerializerResponseOptions);
                     }
                     catch (Exception ex)
                     {

@@ -1,38 +1,31 @@
 # MailChimpWrapper
 This project wraps around the basic MailChimp API, and gives you an easier and more readable solution for requesting data.
 
-## Currently includes:
-- Ping
-- Root
-- Lists (Audiences)
-- List Members
-- MemberTags
-
 ## Usage
 ### Initialize the client:
-```
+```cs
 MailChimpWrapper.MailChimpClient client = new MailChimpWrapper.MailChimpClient("APIKEY", "SERVER");
 ```
 ### Ping
-```
+```cs
 PingResponse pingResult = await client.GetRequest<PingResponse>(Endpoints.Ping);
 ```
 ### Root
-```
+```cs
 RootResponse rootresp = await client.GetRequest<RootResponse>(Endpoints.Root);
 ```
 ### Lists (Audiences)
 #### Get multiple
-```
+```cs
 ListsResponse listsResult = await client.GetRequest<ListsResponse>(Endpoints.Lists);
 ```
 #### Get by id
-```
+```cs
 ListResponse listResult = await client.Request<ListGetRequest, ListResponse>(new ListGetRequest("ID"));
 ```
 ### List Members
-#### Post
-```
+#### Post 
+```cs
 var listMembers = new List<Member>() { new Member(){
             EmailAddress="emailaddress",
             EmailClient="Outlook",
@@ -46,16 +39,73 @@ ListMembersResponse listMembersResponse = await client.Request<ListMembersPostRe
 ```
 ### Member Tags
 #### Get
-```
+```cs
 MemberTagsResponse memberTagsResponse = await client.Request<MemberTagsGetRequest, MemberTagsResponse>(new MemberTagsGetRequest("listId", "emailaddress"));
 ```
-#### Post
-Note: Because the Api doesn't return any content there is no response.
-```
+#### Add tag to member in list
+> Note: Because the Api doesn't return any content there is no response.
+```cs
 await client.Request(new MemberTagsPostRequest("listId", "emailaddress", new List<Tag>() { new Tag() { Name = "tagName", Status = "active/inactive" } }));
 ```
+### Campaigns
+#### Get all 
+```cs
+var listCampaigns = await client.GetRequest<CampaignsResponse>(Endpoints.Campaigns);
+```
+#### Get by id
+```cs
+CampaignResponse campaign = await client.Request<CampaignGetRequest, CampaignResponse>(new CampaignGetRequest("campaignId"));
+```
+#### Post new
+```cs
+var newCampaign = await client.Request<CampaignNewPostRequest, CampaignResponse>(new CampaignNewPostRequest(CampaignType.regular));
+```
+#### Send/Resend
+```cs
+await client.Request(new CampaignSendRequest(campaign.Id));
+```
+```cs
+await client.Request(new CampaignResendRequest(campaign.Id));
+```
+#### Delete campaign
+```cs
+await client.Request(new CampaignDeleteRequest(campaign.Id));
 
-<br/>
-<br/>
-<br/>
-<b>Note this project is in a very early stage!</b>
+```
+#### <b> Guide add List(Audience) to campaign </b>
+This guide will explain how to edit a campaign and add you existing audience to it.
+1. Get the campaign by id:
+```cs
+CampaignResponse campaign = await client.Request<CampaignGetRequest, CampaignResponse>(new CampaignGetRequest("campaignId"));
+```
+2. Edit their Recipients:
+```cs
+Recipients recipients = campaign.Recipients;
+recipients.ListId = "listId";
+```
+3. Create a campaign edit request, inside the new request add the new recipients:
+```cs
+CampaignEditRequest campaignEditRequest = new CampaignEditRequest(campaign.Id) { Recipients = recipients };
+```
+4. Now request the edit of the campaign using the client:
+```cs
+CampaignResponse updatedCampaign = await client.Request<CampaignEditRequest, CampaignResponse>(campaignEditRequest);
+```
+
+## Error handling:
+```cs
+try
+{
+    //request
+}
+catch (ResponseException responseException)
+{
+    var message = responseException.ErrorResponse.Detail;
+}
+catch (UnknownResponseException unknownException)
+{
+    var response = unknownException.ResponseMessage;
+}
+```
+
+> Note: This project is in a very early stage!

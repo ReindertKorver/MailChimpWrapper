@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json.Serialization;
+using MailChimpWrapper.Models.Responses;
 
 namespace MailChimpWrapper.Models.Requests
 {
@@ -10,6 +11,9 @@ namespace MailChimpWrapper.Models.Requests
     /// Batch subscribe or unsubscribe list members.
     /// <para>
     /// <see href="https://mailchimp.com/developer/api/marketing/lists/batch-subscribe-or-unsubscibe/">Docs /lists/{list_id}</see>
+    /// </para>
+    /// <para>
+    /// Result of this request will be of type <see cref="ListMembersResponse"/>
     /// </para>
     /// </summary>
     public class ListMembersPostRequest : IBaseRequest

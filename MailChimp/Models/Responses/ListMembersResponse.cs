@@ -3,9 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
+using MailChimpWrapper.Models.Requests;
 
 namespace MailChimpWrapper.Models.Responses
 {
+    ///<summary>
+    /// This is the result of a request:
+    /// <para>
+    /// <see cref="ListMembersPostRequest"></see>
+    /// </para>
+    /// </summary>
     public class ListMembersResponse : IBaseResponse
     {
         [JsonPropertyName("new_members")]

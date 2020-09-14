@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
+using MailChimpWrapper.Models.Requests;
+using MailChimpWrapper;
 
 namespace MailChimpWrapper.Models.Responses
 {
+    ///<summary>
+    /// This is the result of a request:
+    /// <para>
+    /// <see cref="RootGetRequest"></see>
+    /// </para>
+    /// </summary>
     public class RootResponse : IBaseResponse
     {
         [JsonPropertyName("account_id")]

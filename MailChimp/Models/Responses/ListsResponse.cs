@@ -2,10 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
+using MailChimpWrapper.Models.Requests;
 
 namespace MailChimpWrapper.Models.Responses
 {
-    public class ListsResponse: IBaseResponse
+    /// <summary>
+    /// This is the result of a request:
+    /// <para>
+    /// <see cref="ListsGetRequest"></see>
+    /// </para>
+    /// </summary>
+    public class ListsResponse : IBaseResponse
     {
         [JsonPropertyName("lists")]
         public List<SubscriberList> Lists { get; set; }
@@ -18,6 +25,7 @@ namespace MailChimpWrapper.Models.Responses
 
         [JsonPropertyName("_links")]
         public Link[] Links { get; set; }
-        public int Status { get ; set ; }
+
+        public int Status { get; set; }
     }
 }

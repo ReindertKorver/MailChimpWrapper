@@ -8,10 +8,13 @@ namespace MailChimpWrapper.Models
     public class Location
     {
         [JsonPropertyName("latitude")]
-        public int Latitude { get; set; }
+        public float Latitude { get; set; }
+
+        [JsonPropertyName("longitude")]
+        public float Longitude { get; set; }
 
         [JsonPropertyName("intitude")]
-        public int intitude { get; set; }
+        public float intitude { get; set; }
 
         [JsonPropertyName("gmtoff")]
         public int Gmtoff { get; set; }

@@ -35,7 +35,7 @@ namespace MailChimpWrapper.Models
         public string NotifyOnUnsubscribe { get; set; }
 
         [JsonPropertyName("date_created")]
-        public DateTimeOffset DateCreated { get; set; }
+        public string DateCreated { get; set; }
 
         [JsonPropertyName("list_rating")]
         public int ListRating { get; set; }

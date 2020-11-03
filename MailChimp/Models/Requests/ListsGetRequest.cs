@@ -13,7 +13,7 @@ namespace MailChimpWrapper.Models.Requests
     /// </summary>
     public class ListsGetRequest : IBaseRequest
     {
-        internal readonly string _queryParams;
+        private readonly string _queryParams;
 
         public ListsGetRequest(string queryParams = "")
         {

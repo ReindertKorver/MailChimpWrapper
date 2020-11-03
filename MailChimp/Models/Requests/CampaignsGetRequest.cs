@@ -17,7 +17,7 @@ namespace MailChimpWrapper.Models.Requests
     /// </summary>
     public class CampaignsGetRequest : IBaseRequest
     {
-        internal readonly string _queryParams;
+        private readonly string _queryParams;
 
         public CampaignsGetRequest(string queryParams = "")
         {

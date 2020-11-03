@@ -33,5 +33,13 @@ namespace MailChimpWrapper.Models
         /// </para>
         /// </summary>
         public const string Campaigns = "/campaigns";
+
+        /// <summary>
+        /// Manage your Mailchimp templates. A template is an HTML file used to create the layout and basic design for a campaign.
+        /// <para>
+        /// <see href="https://mailchimp.com/developer/api/marketing/templates">Docs /Templates</see>
+        /// </para>
+        /// </summary>
+        public const string Templates = "/templates";
     }
 }

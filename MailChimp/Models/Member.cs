@@ -35,19 +35,19 @@ namespace MailChimpWrapper.Models
         public string IpSignup { get; set; }
 
         [JsonPropertyName("timestamp_signup")]
-        public DateTimeOffset TimestampSignup { get; set; }
+        public string TimestampSignup { get; set; }
 
         [JsonPropertyName("ip_opt")]
         public string IpOpt { get; set; }
 
         [JsonPropertyName("timestamp_opt")]
-        public DateTimeOffset TimestampOpt { get; set; }
+        public string TimestampOpt { get; set; }
 
         [JsonPropertyName("member_rating")]
         public int MemberRating { get; set; }
 
         [JsonPropertyName("last_changed")]
-        public DateTimeOffset LastChanged { get; set; }
+        public string LastChanged { get; set; }
 
         [JsonPropertyName("language")]
         public string Language { get; set; }

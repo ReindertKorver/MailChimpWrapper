@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace MailChimpWrapper.Models.Responses
 {
-    public class ListMembersResponse : IBaseResponse
+    public class ListNewMembersResponse : IBaseResponse
     {
         [JsonPropertyName("new_members")]
         public List<Member> NewMembers { get; set; }

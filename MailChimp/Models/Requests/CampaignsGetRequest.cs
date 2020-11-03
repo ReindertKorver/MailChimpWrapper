@@ -14,6 +14,9 @@ namespace MailChimpWrapper.Models.Requests
     /// <para>
     /// Result of this request will be of type <see cref="CampaignsResponse"/>
     /// </para>
+    /// <para>
+    /// Because this request does not require any values you can also use <see cref="MailChimpClient.GetRequest"></see>
+    /// </para>
     /// </summary>
     public class CampaignsGetRequest : IBaseRequest
     {

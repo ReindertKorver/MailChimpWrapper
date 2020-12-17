@@ -22,7 +22,6 @@ namespace MailChimpWrapper
         /// <summary>
         /// A client to do requests
         /// <para>ApiKey and Server are required for more information: <see href="https://mailchimp.com/developer/guides/marketing-api-quick-start/">Api quick start</see></para>
-        ///
         /// </summary>
         /// <param name="apikey"></param>
         /// <param name="server"></param>
@@ -32,6 +31,13 @@ namespace MailChimpWrapper
             this.Server = server;
         }
 
+        /// <summary>
+        /// The default request method which can be used to interact with the MailChimp API.
+        /// </summary>
+        /// <typeparam name="RequestBody">A type of a requestbody must extend from IBaseRequest, this body will be deserialized and used as the body of the request. Location: <see cref="MailChimpWrapper.Models.Requests"/>.</typeparam>
+        /// <typeparam name="ResponseBody">The responsebody the Api wil return into which the body will be serialized. Location: <see cref="MailChimpWrapper.Models.Responses"/>.</typeparam>
+        /// <param name="requestBody"></param>
+        /// <returns></returns>
         public async Task<ResponseBody> Request<RequestBody, ResponseBody>(RequestBody requestBody) where RequestBody : Models.Requests.IBaseRequest
         {
             var client = new HttpClient();
@@ -95,11 +101,29 @@ namespace MailChimpWrapper
             }
         }
 
+        /// <summary>
+        /// An alternative request method which can be used to interact with the MailChimp API.
+        /// <para>
+        /// Used for get requests with an empty body an endpoint is required to make the request.
+        /// </para>
+        /// </summary>
+        /// <typeparam name="ResponseBody"></typeparam>
+        /// <param name="endpoint"></param>
+        /// <returns></returns>
         public async Task<ResponseBody> GetRequest<ResponseBody>(string endpoint)
         {
             return await Request<BaseGetRequest, ResponseBody>(new BaseGetRequest(endpoint));
         }
 
+        /// <summary>
+        /// An alternative request method which can be used to interact with the MailChimp API.
+        /// <para>
+        /// Used for requests that return an EmptyResponse which means a HTTP Status 204 Empty Response, this method returns a empty Task so no response will be returned.
+        /// </para>
+        /// </summary>
+        /// <typeparam name="RequestBody"></typeparam>
+        /// <param name="requestBody"></param>
+        /// <returns></returns>
         public async Task Request<RequestBody>(RequestBody requestBody) where RequestBody : Models.Requests.IBaseRequest
         {
             await Request<RequestBody, EmptyResponse>(requestBody);

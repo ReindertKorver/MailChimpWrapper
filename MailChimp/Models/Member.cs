@@ -23,10 +23,10 @@ namespace MailChimpWrapper.Models
         public string Status { get; set; }
 
         [JsonPropertyName("merge_fields")]
-        public Interests MergeFields { get; set; }
+        public Dictionary<string,object>  MergeFields { get; set; }
 
         [JsonPropertyName("interests")]
-        public Interests Interests { get; set; }
+        public Dictionary<string,object> Interests { get; set; }
 
         [JsonPropertyName("stats")]
         public Stats Stats { get; set; }

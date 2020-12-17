@@ -7,6 +7,35 @@ namespace MailChimpWrapper.Models
 {
     public class Campaign
     {
+        public Campaign()
+        {
+        }
+
+        public Campaign(Campaign c)
+        {
+            Id = c.Id;
+            WebId = c.WebId;
+            ParentCampaignId = c.ParentCampaignId;
+            Type = c.Type;
+            Recipients = c.Recipients;
+            Settings = c.Settings;
+            VariateSettings = c.VariateSettings;
+            Tracking = c.Tracking;
+            RssOpts = c.RssOpts;
+            AbSplitOpts = c.AbSplitOpts;
+            SocialCard = c.SocialCard;
+            CreateTime = c.CreateTime;
+            ArchiveUrl = c.ArchiveUrl;
+            LongArchiveUrl = c.LongArchiveUrl;
+            EmailsSent = c.EmailsSent;
+            SendTime = c.SendTime;
+            ContentType = c.ContentType;
+            NeedsBlockRefresh = c.NeedsBlockRefresh;
+            HasLogoMergeTag = c.HasLogoMergeTag;
+            Resendable = c.Resendable;
+            Links = c.Links;
+        }
+
         [JsonPropertyName("id")]
         public string Id { get; set; }
 

@@ -73,7 +73,7 @@ await client.Request(new CampaignDeleteRequest(campaign.Id));
 
 ```
 # Guides
-## Batch Subsrcibe/Unsubscribe Member to List(Audience)
+## Batch Subscribe/Unsubscribe Member to List(Audience)
 This guide will show you how to subscribe and also unsubscribe batches of members.
 1. Create a list of members:
 ```cs

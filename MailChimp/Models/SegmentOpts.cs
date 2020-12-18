@@ -5,18 +5,18 @@ using System.Text.Json.Serialization;
 
 namespace MailChimpWrapper.Models
 {
-    public class SegmentOpts
-    {
-        [JsonPropertyName("saved_segment_id")]
-        public int SavedSegmentId { get; set; }
+	public class SegmentOpts
+	{
+		[JsonPropertyName("saved_segment_id")]
+		public int SavedSegmentId { get; set; }
 
-        [JsonPropertyName("prebuilt_segment_id")]
-        public string PrebuiltSegmentId { get; set; }
+		[JsonPropertyName("prebuilt_segment_id")]
+		public string PrebuiltSegmentId { get; set; }
 
-        [JsonPropertyName("match")]
-        public string Match { get; set; }
+		[JsonPropertyName("match")]
+		public string Match { get; set; }
 
-        [JsonPropertyName("conditions")]
-        public List<object> Conditions { get; set; }
-    }
+		[JsonPropertyName("conditions")]
+		public List<Condition> Conditions { get; set; }
+	}
 }

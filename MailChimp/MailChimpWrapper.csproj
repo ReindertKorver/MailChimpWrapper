@@ -5,9 +5,11 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Reindert</Authors>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/ReindertKorver/MailChimpWrapper</RepositoryUrl>
+    <Description>This project wraps around the basic MailChimp API, and gives you an easier and more readable solution for requesting data.
+Build this for a project during my study at Rotterdam University of Applied Sciences.</Description>
   </PropertyGroup>
 
 </Project>

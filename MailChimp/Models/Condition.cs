@@ -14,6 +14,6 @@ namespace MailChimpWrapper.Models
 		public string Operator { get; set; }
 
 		[JsonPropertyName("value")]
-		public string Value { get; set; }
+		public object Value { get; set; }
 	}
 }

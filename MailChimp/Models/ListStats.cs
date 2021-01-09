@@ -8,15 +8,15 @@ namespace MailChimpWrapper.Models
 	public class ListStats
 	{
 		[JsonPropertyName("sub_rate")]
-		public int SubRate { get; set; }
+		public double SubRate { get; set; }
 
 		[JsonPropertyName("unsub_rate")]
-		public int UnsubRate { get; set; }
+		public double UnsubRate { get; set; }
 
 		[JsonPropertyName("open_rate")]
-		public int OpenRate { get; set; }
+		public double OpenRate { get; set; }
 
 		[JsonPropertyName("click_rate")]
-		public int ClickRate { get; set; }
+		public double ClickRate { get; set; }
 	}
 }

@@ -8,12 +8,12 @@ namespace MailChimpWrapper.Models
 	public class FacebookLikes
 	{
 		[JsonPropertyName("recipient_likes")]
-		public long RecipientLikes { get; set; }
+		public int RecipientLikes { get; set; }
 
 		[JsonPropertyName("unique_likes")]
-		public long UniqueLikes { get; set; }
+		public int UniqueLikes { get; set; }
 
 		[JsonPropertyName("facebook_likes")]
-		public long FacebookLikesFacebookLikes { get; set; }
+		public int FacebookLikesFacebookLikes { get; set; }
 	}
 }

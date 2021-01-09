@@ -41,6 +41,6 @@ namespace MailChimpWrapper.Models
 		public string LastOpen { get; set; }
 
 		[JsonPropertyName("unique_opens")]
-		public long UniqueOpens { get; set; }
+		public int UniqueOpens { get; set; }
 	}
 }

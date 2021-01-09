@@ -8,13 +8,13 @@ namespace MailChimpWrapper.Models
 	public class Ecommerce
 	{
 		[JsonPropertyName("total_orders")]
-		public long TotalOrders { get; set; }
+		public int TotalOrders { get; set; }
 
 		[JsonPropertyName("total_spent")]
-		public long TotalSpent { get; set; }
+		public int TotalSpent { get; set; }
 
 		[JsonPropertyName("total_revenue")]
-		public long TotalRevenue { get; set; }
+		public int TotalRevenue { get; set; }
 
 		[JsonPropertyName("currency_code")]
 		public string CurrencyCode { get; set; }

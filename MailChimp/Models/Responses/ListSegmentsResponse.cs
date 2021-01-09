@@ -21,7 +21,7 @@ namespace MailChimpWrapper.Models.Responses
 		public string ListId { get; set; }
 
 		[JsonPropertyName("total_items")]
-		public long TotalItems { get; set; }
+		public int TotalItems { get; set; }
 
 		[JsonPropertyName("_links")]
 		public Link[] Links { get; set; }

@@ -5,27 +5,24 @@ using System.Text.Json.Serialization;
 
 namespace MailChimpWrapper.Models
 {
-    public class Location
-    {
-        [JsonPropertyName("latitude")]
-        public float Latitude { get; set; }
+	public class Location
+	{
+		[JsonPropertyName("latitude")]
+		public float Latitude { get; set; }
 
-        [JsonPropertyName("longitude")]
-        public float Longitude { get; set; }
+		[JsonPropertyName("intitude")]
+		public float intitude { get; set; }
 
-        [JsonPropertyName("intitude")]
-        public float intitude { get; set; }
+		[JsonPropertyName("gmtoff")]
+		public int Gmtoff { get; set; }
 
-        [JsonPropertyName("gmtoff")]
-        public int Gmtoff { get; set; }
+		[JsonPropertyName("dstoff")]
+		public int Dstoff { get; set; }
 
-        [JsonPropertyName("dstoff")]
-        public int Dstoff { get; set; }
+		[JsonPropertyName("country_code")]
+		public string CountryCode { get; set; }
 
-        [JsonPropertyName("country_code")]
-        public string CountryCode { get; set; }
-
-        [JsonPropertyName("timezone")]
-        public string Timezone { get; set; }
-    }
+		[JsonPropertyName("timezone")]
+		public string Timezone { get; set; }
+	}
 }

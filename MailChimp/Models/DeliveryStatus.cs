@@ -17,9 +17,9 @@ namespace MailChimpWrapper.Models
 		public string Status { get; set; }
 
 		[JsonPropertyName("emails_sent")]
-		public long EmailsSent { get; set; }
+		public int EmailsSent { get; set; }
 
 		[JsonPropertyName("emails_canceled")]
-		public long EmailsCanceled { get; set; }
+		public int EmailsCanceled { get; set; }
 	}
 }

@@ -11,12 +11,12 @@ namespace MailChimpWrapper.Models
 		public string Timestamp { get; set; }
 
 		[JsonPropertyName("emails_sent")]
-		public long EmailsSent { get; set; }
+		public int EmailsSent { get; set; }
 
 		[JsonPropertyName("unique_opens")]
-		public long UniqueOpens { get; set; }
+		public int UniqueOpens { get; set; }
 
 		[JsonPropertyName("recipients_clicks")]
-		public long RecipientsClicks { get; set; }
+		public int RecipientsClicks { get; set; }
 	}
 }

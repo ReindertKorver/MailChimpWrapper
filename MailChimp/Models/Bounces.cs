@@ -8,12 +8,12 @@ namespace MailChimpWrapper.Models
 	public class Bounces
 	{
 		[JsonPropertyName("hard_bounces")]
-		public long HardBounces { get; set; }
+		public int HardBounces { get; set; }
 
 		[JsonPropertyName("soft_bounces")]
-		public long SoftBounces { get; set; }
+		public int SoftBounces { get; set; }
 
 		[JsonPropertyName("syntax_errors")]
-		public long SyntaxErrors { get; set; }
+		public int SyntaxErrors { get; set; }
 	}
 }

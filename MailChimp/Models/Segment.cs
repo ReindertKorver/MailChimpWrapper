@@ -8,13 +8,13 @@ namespace MailChimpWrapper.Models
 	public class Segment
 	{
 		[JsonPropertyName("id")]
-		public long Id { get; set; }
+		public int Id { get; set; }
 
 		[JsonPropertyName("name")]
 		public string Name { get; set; }
 
 		[JsonPropertyName("member_count")]
-		public long MemberCount { get; set; }
+		public int MemberCount { get; set; }
 
 		[JsonPropertyName("type")]
 		public string Type { get; set; }

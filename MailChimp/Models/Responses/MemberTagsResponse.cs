@@ -6,23 +6,23 @@ using MailChimpWrapper.Models.Requests;
 
 namespace MailChimpWrapper.Models.Responses
 {
-    ///<summary>
-    /// This is the result of a request:
-    /// <para>
-    /// <see cref="MemberTagsGetRequest"></see>
-    /// </para>
-    /// </summary>
-    public class MemberTagsResponse : IBaseResponse
-    {
-        [JsonPropertyName("tags")]
-        public List<Tag> Tags { get; set; }
+	///<summary>
+	/// This is the result of a request:
+	/// <para>
+	/// <see cref="MemberTagsGetRequest"></see>
+	/// </para>
+	/// </summary>
+	public class MemberTagsResponse : IBaseResponse
+	{
+		[JsonPropertyName("tags")]
+		public List<Tag> Tags { get; set; }
 
-        [JsonPropertyName("total_items")]
-        public long TotalItems { get; set; }
+		[JsonPropertyName("total_items")]
+		public int TotalItems { get; set; }
 
-        [JsonPropertyName("_links")]
-        public List<Link> Links { get; set; }
+		[JsonPropertyName("_links")]
+		public List<Link> Links { get; set; }
 
-        public int Status { get; set; }
-    }
+		public int Status { get; set; }
+	}
 }

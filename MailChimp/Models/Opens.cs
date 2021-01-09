@@ -8,13 +8,13 @@ namespace MailChimpWrapper.Models
 	public class Opens
 	{
 		[JsonPropertyName("opens_total")]
-		public long OpensTotal { get; set; }
+		public int OpensTotal { get; set; }
 
 		[JsonPropertyName("unique_opens")]
-		public long UniqueOpens { get; set; }
+		public int UniqueOpens { get; set; }
 
 		[JsonPropertyName("open_rate")]
-		public long OpenRate { get; set; }
+		public int OpenRate { get; set; }
 
 		[JsonPropertyName("last_open")]
 		public string LastOpen { get; set; }
